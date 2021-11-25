@@ -1,11 +1,11 @@
 package com.example.foodie.di
 
 import androidx.compose.ui.layout.ScaleFactor
-import com.example.foodie.category.repository.CategoryRepository
-import com.example.foodie.category.repository.ICategoryRepository
-import com.example.foodie.category.service.ICategoryService
-import com.example.foodie.category.usecase.GetCategoriesUseCase
-import com.example.foodie.category.usecase.IGetCategoriesUseCase
+import com.example.foodie.meal.repository.IMealRepository
+import com.example.foodie.meal.repository.MealRepository
+import com.example.foodie.meal.service.IMealService
+import com.example.foodie.meal.usecase.GetMealsUseCase
+import com.example.foodie.meal.usecase.IGetMealsUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -33,8 +33,8 @@ import javax.inject.Singleton
 
         @Provides
         @Singleton
-        fun providesCategoryService(retrofit: Retrofit) : ICategoryService{
-            return retrofit.create(ICategoryService::class.java)
+        fun providesCategoryService(retrofit: Retrofit) : IMealService{
+            return retrofit.create(IMealService::class.java)
         }
 
         @Module
@@ -42,11 +42,11 @@ import javax.inject.Singleton
         interface AppModuleInt{
         @Binds
         @Singleton
-        fun provideCategoryRepository(repo: CategoryRepository): ICategoryRepository
+        fun provideCategoryRepository(repo: MealRepository): IMealRepository
 
         @Binds
         @Singleton
-        fun provideGetCategoryUseCase(uc: GetCategoriesUseCase): IGetCategoriesUseCase
+        fun provideGetCategoryUseCase(uc: GetMealsUseCase): IGetMealsUseCase
 
     }
 
